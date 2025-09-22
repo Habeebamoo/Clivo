@@ -1,1 +1,43 @@
-@import "tailwindcss"
+@import "tailwindcss";
+
+@font-face {
+  font-family: "inter";
+  src: url("./fonts/Inter/static/Inter_18pt-Medium.ttf");
+}
+
+@font-face {
+  font-family: "exo";
+  src: url("./fonts/Exo/static/Exo-Medium.ttf");
+}
+
+@utility flex-start {
+  @apply flex items-center justify-start;
+};
+
+@utility flex-center {
+  @apply flex items-center justify-center
+};
+
+@utility flex-end {
+  @apply flex items-center justify-end
+};
+
+@utility flex-between {
+  @apply flex items-center justify-between
+};
+
+@utility btn-primary {
+  @apply bg-primary py-1 px-3 border-1 border-primary text-white rounded-sm hover:text-primary hover:bg-transparent cursor-pointer;
+};
+
+.test {
+  color: rgb(180, 175, 173);
+}
+
+@theme {
+  --color-primary: rgb(20,20,20);
+  --color-secondary: rgb(226,93,31);
+  --color-accent: rgb(180,175,173);
+  --font-inter: "inter";
+  --font-exo: "exo";
+}
