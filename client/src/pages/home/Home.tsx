@@ -1,9 +1,14 @@
-import HomeHeader from "../../components/HomeHeader"
+import HomeHeader from "../../components/Header"
 
 const Home = () => {
   return (
     <>
       <HomeHeader />
+
+      {/* Subscription Section */}
+      <div>
+
+      </div>
     </>
   )
 }
