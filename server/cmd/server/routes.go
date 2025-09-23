@@ -3,7 +3,7 @@ package server
 import (
 	"github.com/Habeebamoo/Clivo/server/internal/handlers"
 	"github.com/Habeebamoo/Clivo/server/internal/middlewares"
-	response "github.com/Habeebamoo/Clivo/server/internal/utils"
+	response "github.com/Habeebamoo/Clivo/server/pkg/utils"
 	"github.com/gin-gonic/gin"
 )
 

@@ -4,7 +4,7 @@ import (
 	"log"
 
 	"github.com/Habeebamoo/Clivo/server/internal/config"
-	response "github.com/Habeebamoo/Clivo/server/internal/utils"
+	response "github.com/Habeebamoo/Clivo/server/pkg/utils"
 	"github.com/gin-gonic/gin"
 )
 
