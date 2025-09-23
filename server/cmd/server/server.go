@@ -1,4 +1,4 @@
-package main
+package server
 
 import (
 	"context"
@@ -13,22 +13,21 @@ import (
 	"github.com/Habeebamoo/Clivo/server/internal/database"
 	"github.com/Habeebamoo/Clivo/server/internal/handlers"
 	"github.com/Habeebamoo/Clivo/server/internal/repositories"
-	"github.com/Habeebamoo/Clivo/server/internal/routes"
 	"github.com/Habeebamoo/Clivo/server/internal/services"
+	"github.com/gin-gonic/gin"
 )
 
-func main() {
-	//load config files
-	config.Initialize()
-
+func ConnectDB() {
 	//init database
-	db, err := database.Initialize()
+	_, err := database.Initialize()
 	if err != nil {
 		log.Fatal(err)
 	}
+}
 
+func SetupHandlers() *gin.Engine {
 	//initialized repositories
-	userRepo := repositories.NewUserRepository(db)
+	userRepo := repositories.NewUserRepository(database.DB)
 
 	//initialized services
 	userService := services.NewUserService(userRepo)
@@ -37,8 +36,10 @@ func main() {
 	userHandler := handlers.NewUserHandler(userService)
 
 	//initialized routes
-	router := routes.ConfigureRoutes(userHandler)
+	return ConfigureRoutes(userHandler)
+}
 
+func Run(router *gin.Engine) {
 	PORT, _ := config.Get("PORT")
 	if PORT == "" {
 		PORT = "8080"
