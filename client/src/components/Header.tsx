@@ -2,7 +2,7 @@ import logo from "../assets/logo.jpg"
 
 const Header = () => {
   return (
-    <header className="py-4 px-6 sm:px-8 flex-between bg-white/10 backdrop-blur-md fixed top-0 left-0 right-0 z-10">
+    <header className="py-4 px-6 sm:px-8 flex-between bg-white fixed top-0 left-0 right-0 z-10">
       <nav className="flex-between w-full">
         <div className="flex-start gap-2">
           <img src={logo} className="h-8 rounded-sm" />

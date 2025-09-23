@@ -26,6 +26,10 @@
   @apply flex items-center justify-between
 };
 
+@utility flex-around {
+  @apply flex items-center justify-around
+};
+
 @utility btn-primary {
   @apply bg-primary py-1 px-3 border-1 border-primary text-white rounded-sm hover:text-primary hover:bg-transparent cursor-pointer;
 };
