@@ -14,7 +14,6 @@ func ConfigureRoutes(userHandler handlers.UserHandler) *gin.Engine {
 	r.Use(middlewares.CORS())
 	r.Use(middlewares.RequireAPIKey())
 
-
 	api := r.Group("/api")
 
 	//health check
