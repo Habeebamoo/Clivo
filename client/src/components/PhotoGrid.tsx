@@ -8,19 +8,23 @@ import chefs from "../assets/chefs.jpg"
 const PhotoGrid = () => {
   return (
     <div className="w-[90%] sm:w-[400px] mx-auto">
-      <div className="flex-around min-h-[550px]">
-        <div className="grid grid-cols-1 gap-1">
-          <img src={nature} className="" />
-          <img src={commercial} className="" />
+      <div className="grid grid-cols-3 gap-2">
+
+        <div className="flex flex-col gap-2 justify-center">
+          <img src={commercial} className="aspect-square object-cover w-full" />
+          <img src={nature} className="aspect-square object-cover w-full" />
         </div>
-        <div className="grid grid-cols-1 gap-1 mx-1">
-          <img src={literature} className="" />
-          <img src={tech} className="" />
+
+        <div className="flex flex-col gap-2">
+          <img src={chefs} className="aspect-square object-cover w-full" />
+          <img src={tech} className="object-cover w-full" style={{ aspectRatio: "1 / 2"}} />
         </div>
-        <div className="grid grid-cols-1 gap-1">
-          <img src={telephone} className="" />
-          <img src={chefs} className="" />
+
+        <div className="flex flex-col gap-2 justify-center">
+          <img src={telephone} className="aspect-square object-cover w-full" />
+          <img src={literature} className="aspect-square object-cover w-full" />
         </div>
+
       </div>
     </div>
   )

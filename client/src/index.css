@@ -35,13 +35,13 @@
 };
 
 .test {
-  color: rgb(180, 175, 173);
+  color: rgb(97, 96, 95);
 }
 
 @theme {
   --color-primary: rgb(20,20,20);
   --color-secondary: rgb(226,93,31);
-  --color-accent: rgb(180,175,173);
+  --color-accent: rgb(97,96,95);
   --font-inter: "inter";
   --font-exo: "exo";
 }
