@@ -1,12 +1,15 @@
 interface Props {
   text: string,
+  action: () => void,
   img?: string,
-  imgClass?: string
+  imgClass?: string,
 }
 
-const Button = ({ text, img, imgClass }: Props) => {
+const Button = ({ text, action, img, imgClass }: Props) => {
   return (
-    <button className="btn-primary py-2 px-4 text-sm font-inter mt-4 flex-center gap-2">
+    <button 
+      onClick={action}
+      className="btn-primary py-2 px-4 text-sm font-inter flex-center gap-2">
       <img src={img} className={imgClass} />
       {text}
     </button>

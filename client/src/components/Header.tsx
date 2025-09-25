@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router"
 import logo from "../assets/logo.jpg"
 
-const Header = () => {
+const Header = ({ type="home" }: { type?: "home" | "dashboard" }) => {
   const navigate = useNavigate()
 
   const toLogin = () => {
@@ -15,7 +15,19 @@ const Header = () => {
           <img src={logo} className="h-8 rounded-sm" />
           <h1 className="text-2xl font-bold font-inter">Clivo</h1>
         </div>
-        <button onClick={toLogin} className="btn-primary text-sm font-exo px-3 py-2">Get Started</button>
+
+        {/* Dynamic */}
+        <div>
+          {type === "home" ?
+            (
+              <button onClick={toLogin} className="btn-primary text-sm font-exo px-3 py-2">Get Started</button>
+            ) : (
+              <div className="h-8 w-8 rounded-full bg-muted border-1 border-accentLight">
+                
+              </div>
+            )
+          }
+        </div>
       </nav>
     </header>
   )
