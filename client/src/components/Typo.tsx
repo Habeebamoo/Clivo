@@ -15,4 +15,12 @@ const H2 = (
   )
 }
 
-export { H1, H2 };
+const H3 = (
+  { font, color="black", text, others }: { font: string, color?: string, text: string, others?: string }
+) => {
+  return (
+    <p className={`text-xl font-${font} text-${color} ${others}`}>{text}</p>
+  )
+}
+
+export { H1, H2, H3 };

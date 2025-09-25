@@ -53,4 +53,6 @@ func (as *AuthSvc) SignInUser(user models.User) (string, int, error) {
 	}
 
 	return token, 200, nil
+
+	//send email notification to admin
 }
