@@ -2,6 +2,7 @@ import { useState } from "react"
 import Header from "../../components/Header"
 import PhotoGrid from "../../components/PhotoGrid"
 import { H1, H2 } from "../../components/Typo"
+import Loading from "../../components/Loading"
 
 const Home = () => {
   const [email, setEmail] = useState<string>("")
@@ -14,6 +15,7 @@ const Home = () => {
 
   return (
     <>
+      <Loading />
       <Header />
 
       {/* Hero section */}
