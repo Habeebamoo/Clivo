@@ -22,8 +22,6 @@ const ArticlePage = () => {
 
   return (
     <main className="w-[90%] sm:w-[400px] md:w-[500px] mx-auto">
-      <div className="mt-20"></div>
-
       {/* Heading section */}
       <div className="p-1 w-full">
         <div>

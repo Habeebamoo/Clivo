@@ -6,12 +6,20 @@ const Header = ({ type="home" }: { type?: "home" | "dashboard" }) => {
   const [navActive, setNavActive] = useState<boolean>(false)
   const navigate = useNavigate()
 
+  const toHome = () => {
+    window.location.href = "/dashboard"
+  }
+
   const toLogin = () => {
     navigate("/login")
   }
 
   const toggleMenu = () => {
     setNavActive(!navActive)
+  }
+
+  const toProfile = () => {
+    window.location.href = "/dashboard/profile"
   }
 
   return (
@@ -33,7 +41,11 @@ const Header = ({ type="home" }: { type?: "home" | "dashboard" }) => {
                   {/* navbar */}
                   {navActive && 
                     <div className="fixed right-[23px] sm:right-[33px] bg-white border-1 border-muted mt-1 text-[12px] text-accent w-40">
-                      <div className="py-3 border-b-1 border-b-muted hover:bg-primary hover:text-white hover:bg-border-white px-3">
+                      <div onClick={toHome} className="py-3 border-b-1 border-b-muted hover:bg-primary hover:text-white hover:bg-border-white px-3">
+                        <p>Home</p>
+                      </div>
+
+                      <div onClick={toProfile} className="py-3 border-b-1 border-b-muted hover:bg-primary hover:text-white hover:bg-border-white px-3">
                         <p>View Profile</p>
                       </div>
 

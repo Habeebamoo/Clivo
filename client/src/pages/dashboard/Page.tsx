@@ -7,8 +7,6 @@ const Dashboard = () => {
 
   return (
     <main>
-      <div className="mt-20"></div>
-      
       {/* Posts */}
       <section className="w-[90%] sm:w-[400px] md:w-[500px] mx-auto">
         {articles.map((article: any, i: any) => {

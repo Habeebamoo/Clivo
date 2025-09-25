@@ -5,6 +5,8 @@ const Layout = () => {
   return (
     <>
       <Header type="dashboard" />
+      {/* margin top to avoif header */}
+      <div className="mt-18"></div>
       <Outlet />
     </>
   )
