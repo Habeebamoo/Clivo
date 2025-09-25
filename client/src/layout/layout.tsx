@@ -5,7 +5,7 @@ const Layout = () => {
   return (
     <>
       <Header type="dashboard" />
-      {/* margin top to avoif header */}
+      {/* margin top to avoid header */}
       <div className="mt-18"></div>
       <Outlet />
     </>

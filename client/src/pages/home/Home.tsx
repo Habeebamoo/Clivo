@@ -24,7 +24,7 @@ const Home = () => {
       </div>
 
       {/* Subscription Section */}
-      <div className="mt-20 p-4">
+      <div className="mt-20 mb-10 p-4">
         <H2 font="exo" text="Stay Inspired" others="text-center" />
         <p className="text-sm text-center text-accent mt-2 lg:mx-auto md:text-center lg:w-[50%]">Join our community of discerning readers and receive carefully selected stories, writing insights, and exclusive content delivered to your inbox.</p>
         <form onSubmit={subscribe} className="mt-4 px-5 relative sm:w-[400px] mx-auto">
