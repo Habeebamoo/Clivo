@@ -24,7 +24,8 @@ func ConfigureRoutes(userHandler handlers.UserHandler) *gin.Engine {
 	//authentication routes
 	auth := api.Group("/auth")
 	{
-		auth.POST("/signin", userHandler.SignIn)
+		auth.GET("/google", userHandler.GoogleLogin)
+		auth.GET("/google/callback", userHandler.GoogleCallBack)
 	}
 
 	return r
