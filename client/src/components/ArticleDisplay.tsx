@@ -3,18 +3,15 @@ import { shorten } from "../utils/utils"
 import { IoCheckmarkCircle } from "react-icons/io5"
 import { BsShare } from "react-icons/bs"
 import type { Article } from "../redux/reducers/article_reducer"
+import { setActiveArticle } from "../redux/reducers/article_reducer"
+import { useDispatch } from "react-redux"
 
 const ArticleDisplay = ({ article }: { article: Article }) => {
-  const toUserProfile = () => {
-
-  }
+  const dispatch = useDispatch()
 
   const toPost = () => {
-
-  }
-
-  const sharePost = () => {
-    
+    dispatch(setActiveArticle(article.articleId));
+    window.location.href = "/dashboard/article"
   }
 
   return (
@@ -22,22 +19,22 @@ const ArticleDisplay = ({ article }: { article: Article }) => {
       {/* profile */}
       <div className="hover:bg-mutedLight cursor-pointer p-1">
         <div className="flex-start gap-2">
-          {article.userPicture ?
+          {article.authorPicture ?
             <div className="h-6 w-6 rounded-full overflow-hidden">
-              <img src={article.userPicture} className="h-full w-full object-cover" />
+              <img src={article.authorPicture} className="h-full w-full object-cover" />
             </div> :
             <div className="w-5 h-5 rounded-full bg-muted border-1 border-accentLight"></div>
           }
           <div className="flex-start gap-1">
-            <p className="font-exo text-sm">{article.userFullname}</p>
-            {article.userVerified && <IoCheckmarkCircle color="rgba(155, 166, 214, 1)" />}
+            <p className="font-exo text-sm">{article.authorFullname}</p>
+            {article.authorVerified && <IoCheckmarkCircle color="rgba(155, 166, 214, 1)" />}
           </div>
         </div>
         <p className="text-[12px] text-accent pl-7">{article.createdAt}</p>
       </div>
 
       {/* title & picture */}
-      <div className="py-3 my-2 grid grid-cols-6 gap-3 px-1 hover:bg-mutedLight cursor-pointer">
+      <div onClick={toPost} className="py-3 my-2 grid grid-cols-6 gap-3 px-1 hover:bg-mutedLight cursor-pointer">
         <div className="col-span-5 break-words">
           <H3 font="inter" text={shorten(article.title, 50)} />
         </div>

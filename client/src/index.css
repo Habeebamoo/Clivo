@@ -35,7 +35,7 @@
 };
 
 .test {
-  color: rgb(240, 238, 236);
+  color: rgb(116, 114, 113);
 }
 
 @theme {
@@ -43,6 +43,7 @@
   --color-secondary: rgb(238,150,109);
   --color-accent: rgb(97,96,95);
   --color-accentLight: rgb(165, 163, 161);
+  --color-text: rgb(116, 114, 113);
   --color-muted: rgb(223, 221, 218);
   --color-mutedLight: rgb(240, 238, 236);
   --font-inter: "inter";

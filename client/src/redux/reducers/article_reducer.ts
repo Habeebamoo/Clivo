@@ -3,36 +3,37 @@ import logo from "../../assets/logo.jpg"
 
 export interface Article {
   articleId: string,
-  userPicture: string,
-  userFullname: string,
-  username: string,
-  userVerified: boolean,
+  authorPicture: string,
+  authorFullname: string,
+  authorUsername: string,
+  authorVerified: boolean,
   createdAt: string,
   title: string,
+  content: string,
   picture?: string,
   tags?: string[],
   readTime: string
 }
 
+export const articles = [
+  {articleId:"jfif", authorPicture: logo, authorFullname: "Clivo", authorUsername: "@clivo", authorVerified: true, title:"How to get a verified account", content: "Hello", createdAt: "2 months ago", picture: logo, tags: ["Tech", "Design", "Business"], readTime: "1 mins read time"},
+  {articleId: "weio", authorPicture: "", authorFullname: "Habeeb Amoo", authorUsername: "@habeeb_amoo_534", authorVerified: false, title:"Go or Rust for backend developement", content: "welcome", createdAt: "4 weeks ago", picture: "", tags: ["Tech", "Software"], readTime: "6 mins read time"},
+];
+
 const initialState = {
-  articles: [
-    {articleId:"jfif", userPicture: logo, userFullname: "Clivo", username: "@clivo", userVerified: true, title:"How to get a verified account", createdAt: "2 months ago", picture: logo, tags: ["Tech", "Design", "Business"], readTime: "1 mins read time"},
-    {articleId: "weio", userPicture: "", userFullname: "Habeeb Amoo", username: "@habeeb_amoo_534", userVerified: false, title:"Go or Rust for backend developement", createdAt: "4 weeks ago", picture: "", tags: ["Tech", "Software"], readTime: "6 mins read time"},
-  ]
+  articles: articles,
+  activeArticle: JSON.parse(localStorage.getItem("clivo_active_article")!) || ""
 }
 
 const articleSlice = createSlice({
   name: "articles",
   initialState,
   reducers: {
-    setArticles: (state, action) => {
-
-    },
-    addArticles: (state, action) => {
-
+    setActiveArticle: (state, action) => {
+      localStorage.setItem("clivo_active_article", JSON.stringify(action.payload))
     }
   }
 })
 
-export const { setArticles } = articleSlice.actions;
+export const { setActiveArticle } = articleSlice.actions;
 export default articleSlice.reducer
