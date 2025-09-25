@@ -1,8 +1,8 @@
-import type { Article } from "../types/article"
 import { H3 } from "./Typo"
 import { shorten } from "../utils/utils"
 import { IoCheckmarkCircle } from "react-icons/io5"
 import { BsShare } from "react-icons/bs"
+import type { Article } from "../redux/reducers/article_reducer"
 
 const ArticleDisplay = ({ article }: { article: Article }) => {
   const toUserProfile = () => {

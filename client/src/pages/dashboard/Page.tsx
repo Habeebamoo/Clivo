@@ -1,13 +1,9 @@
+import { useSelector } from "react-redux"
 import ArticleDisplay from "../../components/ArticleDisplay"
-import logo from "../../assets/logo.jpg"
-import type { Article } from "../../types/article"
+import type { Article } from "../../redux/reducers/article_reducer"
 
 const Dashboard = () => {
-
-  const articles: Article[] = [
-    {userPicture: logo, userFullname: "Clivo", username: "@clivo", userVerified: true, title:"How to get a verified account", createdAt: "2 months ago", picture: logo, tags: ["Tech", "Design", "Business"], readTime: "1 mins read time"},
-    {userPicture: "", userFullname: "Habeeb Amoo", username: "@habeeb_amoo_534", userVerified: false, title:"Go or Rust for backend developement", createdAt: "4 weeks ago", picture: "", tags: ["Tech", "Software"], readTime: "6 mins read time"},
-  ]
+  const articles: Article[] = useSelector((state: any) => state.articles.articles)
 
   return (
     <main>
