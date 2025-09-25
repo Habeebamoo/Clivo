@@ -10,6 +10,7 @@ import LoginPage from "./pages/home/Login"
 import Layout from "./layout/layout"
 import Dashboard from "./pages/dashboard/Page"
 import Article from "./pages/dashboard/Article"
+import MyProfile from "./pages/dashboard/MyProfile"
 
 const App = () => {
   const router = createBrowserRouter(
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/dashboard" element={<Layout />}>
           <Route path="" element={<Dashboard />} />
           <Route path="article" element={<Article />} />
+          <Route path="profile" element={<MyProfile />} />
         </Route>
       </>
     )

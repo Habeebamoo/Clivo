@@ -1,11 +1,17 @@
 import { useNavigate } from "react-router"
 import logo from "../assets/logo.jpg"
+import { useState } from "react"
 
 const Header = ({ type="home" }: { type?: "home" | "dashboard" }) => {
+  const [navActive, setNavActive] = useState<boolean>(false)
   const navigate = useNavigate()
 
   const toLogin = () => {
     navigate("/login")
+  }
+
+  const toggleMenu = () => {
+    setNavActive(!navActive)
   }
 
   return (
@@ -22,8 +28,24 @@ const Header = ({ type="home" }: { type?: "home" | "dashboard" }) => {
             (
               <button onClick={toLogin} className="btn-primary text-sm font-exo px-3 py-2">Get Started</button>
             ) : (
-              <div className="h-8 w-8 rounded-full bg-muted border-1 border-accentLight">
-                
+              <div className="cursor-pointer">
+                <div onClick={toggleMenu} className="h-8 w-8 rounded-full bg-muted border-1 border-accentLight"></div>
+                  {/* navbar */}
+                  {navActive && 
+                    <div className="fixed right-[23px] sm:right-[33px] bg-white border-1 border-muted mt-1 text-[12px] text-accent w-40">
+                      <div className="py-3 border-b-1 border-b-muted hover:bg-primary hover:text-white hover:bg-border-white px-3">
+                        <p>View Profile</p>
+                      </div>
+
+                      <div className="py-3 border-b-1 border-b-muted hover:bg-primary hover:text-white hover:bg-border-white px-3">
+                        <p>New Article</p>
+                      </div>
+
+                      <div className="py-3 hover:bg-primary hover:text-white hover:bg-border-white px-3">
+                        <p>Sign Out</p>
+                      </div>
+                    </div>
+                  }
               </div>
             )
           }

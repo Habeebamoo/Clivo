@@ -7,7 +7,7 @@ import { shorten } from "../../utils/utils";
 import { IoCheckmarkCircle } from "react-icons/io5";
 import { FaUpload } from "react-icons/fa";
 
-const Article = () => {
+const ArticlePage = () => {
   const articleId: string = useSelector((state: any) => state.articles.activeArticle);
   
   const navigate = useNavigate();
@@ -83,4 +83,4 @@ const Article = () => {
   )
 }
 
-export default Article
+export default ArticlePage
