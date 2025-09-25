@@ -25,18 +25,18 @@ func ConnectDB() {
 	}
 }
 
-func SetupHandlers() *gin.Engine {
+func ConfigureApp() *gin.Engine {
 	//initialized repositories
-	userRepo := repositories.NewUserRepository(database.DB)
+	authRepo := repositories.NewAuthRepository(database.DB)
 
 	//initialized services
-	userService := services.NewUserService(userRepo)
+	authService := services.NewAuthService(authRepo)
 
 	//initialized handlers
-	userHandler := handlers.NewUserHandler(userService)
+	authHandler := handlers.NewAuthHandler(authService)
 
 	//initialized routes
-	return ConfigureRoutes(userHandler)
+	return SetupRoutes(authHandler)
 }
 
 func Run(router *gin.Engine) {

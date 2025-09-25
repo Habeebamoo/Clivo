@@ -9,22 +9,22 @@ import (
 	"gorm.io/gorm"
 )
 
-type UserRepository interface {
+type AuthRepository interface {
 	CreateUser(models.User) (models.User, int, error)
 	GetUserByEmail(email string) (models.User, int, error)
 	UserExists(email string) bool
 }
 
-type UserRepo struct {
+type AuthRepo struct {
 	db *gorm.DB
 }
 
-func NewUserRepository(db *gorm.DB) UserRepository {
-	return &UserRepo{db: db}
+func NewAuthRepository(db *gorm.DB) AuthRepository {
+	return &AuthRepo{db: db}
 }
 
-func (uRepo *UserRepo) CreateUser(user models.User) (models.User, int, error) {
-	res := uRepo.db.Create(&user)
+func (ar *AuthRepo) CreateUser(user models.User) (models.User, int, error) {
+	res := ar.db.Create(&user)
 
 	if res.Error != nil {
 		if strings.Contains(res.Error.Error(), "duplicate key value") {
@@ -36,9 +36,9 @@ func (uRepo *UserRepo) CreateUser(user models.User) (models.User, int, error) {
 	return user, 201, nil
 }
 
-func (uRepo *UserRepo) GetUserByEmail(email string) (models.User, int, error) {
+func (ar *AuthRepo) GetUserByEmail(email string) (models.User, int, error) {
 	var user models.User
-	res := uRepo.db.First(&user, "email = ?", email)
+	res := ar.db.First(&user, "email = ?", email)
 	
 	if res.Error != nil {
 		if res.Error == gorm.ErrRecordNotFound {
@@ -50,9 +50,9 @@ func (uRepo *UserRepo) GetUserByEmail(email string) (models.User, int, error) {
 	return user, 200, nil
 }
 
-func (uRepo *UserRepo) UserExists(email string) bool {
+func (ar *AuthRepo) UserExists(email string) bool {
 	var user models.User
-	res := uRepo.db.First(&user, "email = ?", email)
+	res := ar.db.First(&user, "email = ?", email)
 	
 	//no user
 	if res.Error == gorm.ErrRecordNotFound {

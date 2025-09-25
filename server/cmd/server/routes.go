@@ -7,7 +7,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func ConfigureRoutes(userHandler handlers.UserHandler) *gin.Engine {
+func SetupRoutes(authHandler handlers.AuthHandler) *gin.Engine {
 	r := gin.Default()
 
 	//middlewares chain
@@ -24,8 +24,8 @@ func ConfigureRoutes(userHandler handlers.UserHandler) *gin.Engine {
 	//authentication routes
 	auth := api.Group("/auth")
 	{
-		auth.GET("/google", userHandler.GoogleLogin)
-		auth.GET("/google/callback", userHandler.GoogleCallBack)
+		auth.GET("/google", authHandler.GoogleLogin)
+		auth.GET("/google/callback", authHandler.GoogleCallBack)
 	}
 
 	return r

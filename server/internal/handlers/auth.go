@@ -7,25 +7,25 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-type UserHandler struct {
-	svc services.UserService
+type AuthHandler struct {
+	svc services.AuthService
 }
 
-func NewUserHandler(svc services.UserService) UserHandler {
-	return UserHandler{svc}
+func NewAuthHandler(svc services.AuthService) AuthHandler {
+	return AuthHandler{svc}
 }
 
-func (usrHdl *UserHandler) GoogleLogin(c *gin.Context) {
+func (ahdl *AuthHandler) GoogleLogin(c *gin.Context) {
 	//redirect to google oauth
 }
 
-func (usrHdl *UserHandler) GoogleCallBack(c *gin.Context) {
+func (ahdl *AuthHandler) GoogleCallBack(c *gin.Context) {
 
 
 	// sign in user
 	user := models.User{}
 
-	token, statusCode, err := usrHdl.svc.SignInUser(user)
+	token, statusCode, err := ahdl.svc.SignInUser(user)
 	if err != nil {
 		utils.Error(c, statusCode, utils.FormatText(err.Error()), nil)
 	}

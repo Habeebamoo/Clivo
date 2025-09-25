@@ -4,8 +4,19 @@ import (
 	"net/http"
 	"time"
 
+	"golang.org/x/text/cases"
+	"golang.org/x/text/language"
 	"github.com/gin-gonic/gin"
 )
+
+func FormatText(text string) string {
+	caser := cases.Title(language.English)
+
+	firstChar := text[:1]
+	restChars := text[1:]
+
+	return caser.String(firstChar) + restChars
+}
 
 func SetCookies(c *gin.Context, token string) {
 	http.SetCookie(c.Writer, &http.Cookie{

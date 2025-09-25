@@ -13,7 +13,7 @@ func main() {
 	server.ConnectDB()
 
 	//setup routes
-	router := server.SetupHandlers()
+	router := server.ConfigureApp()
 
 	//run the server
 	server.Run(router)

@@ -6,25 +6,25 @@ import (
 	"github.com/Habeebamoo/Clivo/server/pkg/utils"
 )
 
-type UserService interface {
+type AuthService interface {
 	SignInUser(models.User) (string, int, error)
 }
 
-type UserSvc struct {
-	repo repositories.UserRepository
+type AuthSvc struct {
+	repo repositories.AuthRepository
 }
 
-func NewUserService(repo repositories.UserRepository) UserService {
-	return &UserSvc{repo}
+func NewAuthService(repo repositories.AuthRepository) AuthService {
+	return &AuthSvc{repo}
 }
 
-func (uSvc *UserSvc) SignInUser(user models.User) (string, int, error) {
+func (as *AuthSvc) SignInUser(user models.User) (string, int, error) {
 	//checks if user already exists and return jwt token
-	exists := uSvc.repo.UserExists(user.Email) 
+	exists := as.repo.UserExists(user.Email) 
 
 	if exists {
 		//get user
-		foundUser, code, err := uSvc.repo.GetUserByEmail(user.Email)
+		foundUser, code, err := as.repo.GetUserByEmail(user.Email)
 		if err != nil {
 			return "", code, err
 		}
@@ -41,7 +41,7 @@ func (uSvc *UserSvc) SignInUser(user models.User) (string, int, error) {
 	//user was not found
 	//now creating user
 
-	createdUser, statusCode, err := uSvc.repo.CreateUser(user)
+	createdUser, statusCode, err := as.repo.CreateUser(user)
 	if err != nil {
 		return "", statusCode, err
 	}
