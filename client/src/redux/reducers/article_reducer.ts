@@ -31,6 +31,7 @@ const articleSlice = createSlice({
   initialState,
   reducers: {
     setActiveArticle: (state, action) => {
+      console.log(state)
       localStorage.setItem("clivo_active_article", JSON.stringify(action.payload))
     }
   }
