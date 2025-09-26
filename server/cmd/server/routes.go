@@ -7,7 +7,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func SetupRoutes(authHandler handlers.AuthHandler) *gin.Engine {
+func SetupRoutes(authHandler handlers.AuthHandler, postHandler handlers.PostHandler) *gin.Engine {
 	r := gin.Default()
 
 	//middlewares chain
@@ -26,6 +26,12 @@ func SetupRoutes(authHandler handlers.AuthHandler) *gin.Engine {
 	{
 		auth.GET("/google", authHandler.GoogleLogin)
 		auth.GET("/google/callback", authHandler.GoogleCallBack)
+	}
+
+	//posts/articles routes
+	article := api.Group("/article", middlewares.AuthenticateUser())
+	{
+		article.POST("", postHandler.CreatePost)
 	}
 
 	return r
