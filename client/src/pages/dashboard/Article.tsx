@@ -4,8 +4,8 @@ import { useNavigate } from "react-router";
 import { useEffect } from "react";
 import { articles, type Article } from "../../redux/reducers/article_reducer";
 import { shorten } from "../../utils/utils";
-import { IoCheckmarkCircle } from "react-icons/io5";
 import { FaUpload } from "react-icons/fa";
+import { MdVerified } from "react-icons/md";
 
 const ArticlePage = () => {
   const articleId: string = useSelector((state: any) => state.articles.activeArticle);
@@ -45,19 +45,19 @@ const ArticlePage = () => {
           {article!.authorPicture ? (
             <img src={article!.authorPicture} className="h-full w-full object-cover" />
           ) : (
-            <div className="w-5 h-5 rounded-full bg-muted border-1 border-accentLight"></div>
+            <div className="w-full h-full rounded-full bg-muted border-1 border-accentLight"></div>
           )}
         </div>
         <div className="flex-start gap-1">
           <p>{article!.authorFullname}</p>
           {article!.authorVerified && 
-            <IoCheckmarkCircle color="rgba(155, 166, 214, 1)" />
+            <MdVerified color="rgba(93, 110, 189, 1)" />
           }
         </div>
         <div className="flex-start gap-1 ml-4">
           <button className="btn-primary text-[12px] rounded-full font-inter">Follow</button>
 
-          <button className="text-[12px] flex-center gap-1 border-1 border-accent py-1 px-3 rounded-full cursor-pointer text-black hover:bg-muted ">
+          <button className="text-[12px] flex-center gap-1 border-1 border-accent py-1 px-3 rounded-full cursor-pointer text-black hover:bg-muted active:bg-muted">
           <FaUpload />
           <span>Share</span>
         </button>

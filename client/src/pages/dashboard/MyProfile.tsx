@@ -1,8 +1,7 @@
 import { useSelector } from "react-redux"
 import { H2 } from "../../components/Typo"
-import { IoCheckmarkCircle } from "react-icons/io5"
 import { BiLink, BiPencil } from "react-icons/bi"
-import { MdDateRange } from "react-icons/md"
+import { MdDateRange, MdVerified } from "react-icons/md"
 
 const MyProfile = () => {
   const user = useSelector((state: any) => state.user.user)
@@ -22,7 +21,7 @@ const MyProfile = () => {
                 {user.picture ? (
                   <img src={user.picture} className="h-full w-full object-cover" />
                 ) : (
-                  <div className="h-full w-full bg-muted"></div>
+                  <div className="h-full w-full object-cover bg-muted"></div>
                 )}
               </div>
             </div>
@@ -36,7 +35,7 @@ const MyProfile = () => {
           <div className="flex-start gap-2">
             <H2 font="exo" text={user.name} />
             {user.verified ? 
-              <IoCheckmarkCircle size={18} color="rgba(155, 166, 214, 1)" /> : 
+              <MdVerified size={18} color="rgba(93, 110, 189, 1)" /> : 
               <p className="text-[12px] underline cursor-pointer">
                 Get Verified
               </p>
@@ -49,7 +48,7 @@ const MyProfile = () => {
 
           {/* Bio */}
           <p className="font-exo text-sm text-accent mt-4">{user.bio}</p>
-          {user.link && 
+          {user.profileLink && 
             <div className="flex-start gap-1 mt-2">
               <BiLink />
               <p className="text-blue-500 text-[12px] underline cursor-pointer">{user.profileLink}</p>
@@ -69,7 +68,7 @@ const MyProfile = () => {
             <p>Joined {user.createdAt}</p>
           </div>
 
-          <button className="text-sm flex-center gap-2 py-2 px-3 border-1 border-accent rounded-full hover:bg-muted mt-6">
+          <button className="text-sm flex-center gap-2 py-2 px-3 border-1 border-accent rounded-full hover:bg-muted active:bg-muted mt-6">
             <BiPencil />
             <span>Edit Profile</span>
           </button>

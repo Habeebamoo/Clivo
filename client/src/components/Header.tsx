@@ -41,19 +41,19 @@ const Header = ({ type="home" }: { type?: "home" | "dashboard" }) => {
                   {/* navbar */}
                   {navActive && 
                     <div className="fixed right-[23px] sm:right-[33px] bg-white border-1 border-muted mt-1 text-[12px] text-accent w-40">
-                      <div onClick={toHome} className="py-3 border-b-1 border-b-muted hover:bg-primary hover:text-white hover:bg-border-white px-3">
+                      <div onClick={toHome} className="nav-text border-b-1 border-b-muted ">
                         <p>Home</p>
                       </div>
 
-                      <div onClick={toProfile} className="py-3 border-b-1 border-b-muted hover:bg-primary hover:text-white hover:bg-border-white px-3">
+                      <div onClick={toProfile} className="nav-text border-b-1 border-b-muted">
                         <p>View Profile</p>
                       </div>
 
-                      <div className="py-3 border-b-1 border-b-muted hover:bg-primary hover:text-white hover:bg-border-white px-3">
+                      <div className="nav-text border-b-1 border-b-muted">
                         <p>New Article</p>
                       </div>
 
-                      <div className="py-3 hover:bg-primary hover:text-white hover:bg-border-white px-3">
+                      <div className="nav-text">
                         <p>Sign Out</p>
                       </div>
                     </div>

@@ -1,10 +1,10 @@
 import { H3 } from "./Typo"
 import { shorten } from "../utils/utils"
-import { IoCheckmarkCircle } from "react-icons/io5"
 import { BsShare } from "react-icons/bs"
 import type { Article } from "../redux/reducers/article_reducer"
 import { setActiveArticle } from "../redux/reducers/article_reducer"
 import { useDispatch } from "react-redux"
+import { MdVerified } from "react-icons/md"
 
 const ArticleDisplay = ({ article }: { article: Article }) => {
   const dispatch = useDispatch()
@@ -17,7 +17,7 @@ const ArticleDisplay = ({ article }: { article: Article }) => {
   return (
     <div className="py-4 border-b-1 border-b-muted">
       {/* profile */}
-      <div className="hover:bg-mutedLight cursor-pointer p-1">
+      <div className="hover:bg-mutedLight active:bg-mutedLight cursor-pointer p-1">
         <div className="flex-start gap-2">
           {article.authorPicture ?
             <div className="h-6 w-6 rounded-full overflow-hidden">
@@ -27,14 +27,14 @@ const ArticleDisplay = ({ article }: { article: Article }) => {
           }
           <div className="flex-start gap-1">
             <p className="font-exo text-sm">{article.authorFullname}</p>
-            {article.authorVerified && <IoCheckmarkCircle color="rgba(155, 166, 214, 1)" />}
+            {article.authorVerified && <MdVerified color="rgba(93, 110, 189, 1)" />}
           </div>
         </div>
         <p className="text-[12px] text-accent pl-7">{article.createdAt}</p>
       </div>
 
       {/* title & picture */}
-      <div onClick={toPost} className="py-3 my-2 grid grid-cols-6 gap-3 px-1 hover:bg-mutedLight cursor-pointer">
+      <div onClick={toPost} className="py-3 my-2 grid grid-cols-6 gap-3 px-1 hover:bg-mutedLight active:bg-mutedLight cursor-pointer">
         <div className="col-span-5 break-words">
           <H3 font="inter" text={shorten(article.title, 50)} />
         </div>

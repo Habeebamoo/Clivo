@@ -31,8 +31,12 @@
 };
 
 @utility btn-primary {
-  @apply bg-primary py-1 px-3 border-1 border-primary text-white rounded-sm hover:text-primary hover:bg-transparent cursor-pointer;
+  @apply bg-primary py-1 px-3 border-1 border-primary text-white rounded-sm hover:text-primary active:text-primary hover:bg-transparent active:bg-transparent cursor-pointer;
 };
+
+@utility nav-text {
+  @apply hover:bg-primary hover:text-white hover:border-b-white active:bg-primary active:text-white px-3 py-3;
+}
 
 .test {
   color: rgb(116, 114, 113);

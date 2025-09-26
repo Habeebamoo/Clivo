@@ -12,10 +12,11 @@ type User struct {
 }
 
 type Profile struct {
-	UserId     string  `json:"userId"`
-	Username   string  `json:"username"`
-	Bio        string  `json:"bio"`
-	Picture    string  `json:"picture"`
-	Following  int     `json:"following"`
-	Followers  int     `json:"followers"`
+	UserId       string  `json:"userId"`
+	Username     string  `json:"username"`
+	Bio          string  `json:"bio"`
+	Picture      string  `json:"picture"`
+	ProfileLink  string  `json:"profileLink"`
+	Following    int     `json:"following"`
+	Followers    int     `json:"followers"`
 }

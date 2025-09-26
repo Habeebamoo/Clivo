@@ -17,6 +17,7 @@ CREATE TABLE profiles (
   username TEXT NOT NULL,
   bio TEXT,
   picture TEXT,
+  profile_link TEXT,
   following INTEGER,
   followers INTEGER,
 
@@ -24,7 +25,7 @@ CREATE TABLE profiles (
 );
 
 INSERT INTO users (user_id, name, email, role, verified) VALUES ('hdiuebeufh82338d2', 'Habeeb', 'habeeb@gmail.com', 'user', true);
-INSERT INTO profiles (user_id, username, bio, picture, following, followers) VALUES ('hdiuebeufh82338d2', '@habeeb_amoo', 'Software Developer', 'b', 0, 0);
+INSERT INTO profiles (user_id, username, bio, picture, profile_link, following, followers) VALUES ('hdiuebeufh82338d2', '@habeeb_amoo', 'Software Developer', 'b', '', 0, 0);
 -- +goose StatementEnd
 
 -- +goose Down
