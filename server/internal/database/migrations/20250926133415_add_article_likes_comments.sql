@@ -10,7 +10,7 @@ CREATE TABLE articles (
   created_at TIMESTAMP DEFAULT NOW(),
 
   UNIQUE (article_id),
-  UNIQUE (author_id) REFERENCES users(user_id)
+  FOREIGN KEY (author_id) REFERENCES users(user_id)
 );
 
 CREATE TABLE tags (

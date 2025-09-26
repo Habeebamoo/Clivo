@@ -7,7 +7,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func SetupRoutes(authHandler handlers.AuthHandler, postHandler handlers.PostHandler) *gin.Engine {
+func SetupRoutes(authHandler handlers.AuthHandler, articleHandler handlers.ArticleHandler) *gin.Engine {
 	r := gin.Default()
 
 	//middlewares chain
@@ -31,7 +31,7 @@ func SetupRoutes(authHandler handlers.AuthHandler, postHandler handlers.PostHand
 	//posts/articles routes
 	article := api.Group("/article", middlewares.AuthenticateUser())
 	{
-		article.POST("", postHandler.CreatePost)
+		article.POST("", articleHandler.CreateArticle)
 	}
 
 	return r

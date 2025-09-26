@@ -1,12 +1,15 @@
 package utils
 
 import (
+	"crypto/rand"
+	"encoding/hex"
+	"log"
 	"net/http"
 	"time"
 
+	"github.com/gin-gonic/gin"
 	"golang.org/x/text/cases"
 	"golang.org/x/text/language"
-	"github.com/gin-gonic/gin"
 )
 
 func FormatText(text string) string {
@@ -31,4 +34,14 @@ func SetCookies(c *gin.Context, token string) {
 		SameSite: http.SameSiteNoneMode,
 		Partitioned: true,
 	})
+}
+
+func GenerateRandomId() string {
+	b := make([]byte, 16)
+	_, err := rand.Read(b)
+	if err != nil {
+		log.Fatal("failed to read bytes")
+	}
+
+	return hex.EncodeToString(b)
 }
