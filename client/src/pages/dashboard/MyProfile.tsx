@@ -52,7 +52,7 @@ const MyProfile = () => {
           {user.link && 
             <div className="flex-start gap-1 mt-2">
               <BiLink />
-              <p className="text-blue-500 text-[12px] underline cursor-pointer">{user.link}</p>
+              <p className="text-blue-500 text-[12px] underline cursor-pointer">{user.profileLink}</p>
             </div>
           }
           

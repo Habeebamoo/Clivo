@@ -10,7 +10,7 @@ const initialState = {
     following: 16,
     followers: 400,
     verified: true,
-    link: "habeebamoo.netlify.app",
+    profileLink: "habeebamoo.netlify.app",
     createdAt: "3 months ago"
   }
 }

@@ -7,12 +7,12 @@ export interface Article {
   authorFullname: string,
   authorUsername: string,
   authorVerified: boolean,
-  createdAt: string,
   title: string,
   content: string,
   picture?: string,
   tags?: string[],
-  readTime: string
+  readTime: string,
+  createdAt: string
 }
 
 export const articles = [

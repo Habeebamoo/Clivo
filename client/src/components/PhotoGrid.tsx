@@ -4,10 +4,9 @@ import literature from "../assets/literature.jpg"
 import tech from "../assets/tech.jpg"
 import telephone from "../assets/telephone.jpg"
 import chefs from "../assets/chefs.jpg"
-import { memo, useMemo } from "react"
+import { memo } from "react"
 
 const PhotoGrid = () => {
-  console.log("photo grid mounting")
   return (
     <div className="w-[90%] sm:w-[400px] mx-auto">
       <div className="grid grid-cols-3 gap-2">
