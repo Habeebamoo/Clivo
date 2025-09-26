@@ -15,20 +15,23 @@ import (
 	"github.com/Habeebamoo/Clivo/server/internal/repositories"
 	"github.com/Habeebamoo/Clivo/server/internal/services"
 	"github.com/gin-gonic/gin"
+	"gorm.io/gorm"
 )
 
-func ConnectDB() {
+func ConnectDB() (*gorm.DB) {
 	//init database
-	_, err := database.Initialize()
+	db, err := database.Initialize()
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	return db
 }
 
-func ConfigureApp() *gin.Engine {
+func ConfigureApp(db *gorm.DB) *gin.Engine {
 	//initialized repositories
-	authRepo := repositories.NewAuthRepository(database.DB)
-	articleRepo := repositories.NewArticleRepository(database.DB)
+	authRepo := repositories.NewAuthRepository(db)
+	articleRepo := repositories.NewArticleRepository(db)
 
 	//initialized services
 	authService := services.NewAuthService(authRepo)

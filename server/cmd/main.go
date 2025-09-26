@@ -10,10 +10,10 @@ func main() {
 	config.Initialize()
 
 	//connect to database
-	server.ConnectDB()
+	database := server.ConnectDB()
 
 	//setup routes
-	router := server.ConfigureApp()
+	router := server.ConfigureApp(database)
 
 	//run the server
 	server.Run(router)

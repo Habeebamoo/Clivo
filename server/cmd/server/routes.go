@@ -13,6 +13,7 @@ func SetupRoutes(authHandler handlers.AuthHandler, articleHandler handlers.Artic
 	//middlewares chain
 	r.Use(middlewares.CORS())
 	r.Use(middlewares.RequireAPIKey())
+	r.Use(middlewares.CustomRecovery())
 
 	api := r.Group("/api")
 

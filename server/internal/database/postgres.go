@@ -6,8 +6,6 @@ import (
 	"gorm.io/gorm"
 )
 
-var DB *gorm.DB
-
 func Initialize() (*gorm.DB, error) {
 	dsn, err := config.Get("DATABASE_URL")
 	if err != nil {

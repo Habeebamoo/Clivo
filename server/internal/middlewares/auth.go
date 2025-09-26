@@ -6,10 +6,6 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-type ReqBody struct {
-	Email string `json:"email"`
-}
-
 func AuthenticateUser() gin.HandlerFunc {
 	return func(c *gin.Context) {
 
@@ -17,18 +13,14 @@ func AuthenticateUser() gin.HandlerFunc {
 
 
 		//fake logic
-		var reqBody ReqBody
-		if err := c.ShouldBindJSON(&reqBody); err != nil {
-			response.Abort(c, 401, "Invalid JSON Format", nil)
-			return 
-		}
+		email := c.GetHeader("email")
 
-		if reqBody.Email != "habeeb@gmail.com" {
+		if email != "habeeb@gmail.com" {
 			response.Abort(c, 401, "Invalid Email", nil)
 			return 
 		}
 
-		c.Set("email", reqBody.Email)
+		c.Set("email", email)
 		c.Next()
 	}
 }
